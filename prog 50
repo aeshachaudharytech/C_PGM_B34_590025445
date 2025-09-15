@@ -1,0 +1,45 @@
+Q50: Write a program to print the following pattern:
+*****
+  ****
+    ***
+      **
+        *
+
+/*
+Sample Test Cases:
+Input 1:
+
+Output 1:
+*****
+  ****
+    ***
+      **
+        *
+
+Input 2:
+
+Output 2:
+Note: Spaces indicate indentation.
+
+*/
+
+#include <stdio.h>
+
+int main() {
+    int rows = 5;
+
+    // Loop through each row
+    for (int i = 0; i < rows; i++) {
+        // Print leading spaces: 2 spaces per row for indentation
+        for (int j = 0; j < i; j++) {
+            printf("  ");
+        }
+        // Print stars: decreasing by 1 each row
+        for (int k = 0; k < rows - i; k++) {
+            printf("*");
+        }
+        printf("\n"); // Move to next line after each row
+    }
+
+    return 0;
+}
