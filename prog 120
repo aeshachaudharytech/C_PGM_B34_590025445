@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+int main() {
+    char str[200];
+    printf("Enter a string:\n");
+    fgets(str, sizeof(str), stdin);
+
+    int n = strlen(str);
+    if (str[n - 1] == '\n')  // Remove newline if present
+        str[n - 1] = '\0';
+
+    int capitalize = 1; // Flag to capitalize first letter of a word
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (isspace(str[i])) {
+            capitalize = 1; // Next character should be capitalized
+        } else if (capitalize && isalpha(str[i])) {
+            str[i] = toupper(str[i]);
+            capitalize = 0;
+        } else {
+            str[i] = tolower(str[i]);
+        }
+    }
+
+    printf("Sentence Case: %s\n", str);
+    return 0;
+}
