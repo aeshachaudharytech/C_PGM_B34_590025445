@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Enter a positive integer n: ");
+    scanf("%d", &n);
+
+    int totalSum = n * (n + 1) / 2;  // Sum of 1 to n
+    int leftSum = 0;
+
+    for(int x = 1; x <= n; x++) {
+        leftSum += x;
+        int rightSum = totalSum - (x * (x - 1) / 2); // Sum from x to n
+
+        if(leftSum == rightSum) {
+            printf("%d\n", x);
+            return 0; // Pivot integer found
+        }
+    }
+
+    printf("-1\n"); // No pivot integer exists
+    return 0;
+}
