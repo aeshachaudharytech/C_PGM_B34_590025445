@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+
+    int arr[n];
+    int arrSum = 0;
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+        arrSum += arr[i]; // accumulate sum in same loop
+    }
+
+    // Expected sum of 0 to (n-1) elements without repetition
+    int expectedSum = (n - 1) * n / 2;
+
+    int repeated = arrSum - expectedSum;
+    printf("Repeated Element: %d\n", repeated);
+
+    return 0;
+}
